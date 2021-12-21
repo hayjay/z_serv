@@ -1,3 +1,7 @@
+<?php
+    include('forms/admin.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,27 +99,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Nurudeen Ajayi</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Dhikrullah Ajayi</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>AbdulAkeem Ajayi</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            </tr>
+            <?php
+                while ($eachRow = mysqli_fetch_assoc($result))
+                    // var_dump($result);exit;             
+                    // echo $eachRow['fullName'] . "<br>";
+                    echo
+                    "<tr>
+                        <th scope='row'>" . $eachRow['id'] . "</th>
+                        <td>" . $eachRow['fullName'] . "</td>
+                        <td>" . $eachRow['email'] . "</td>
+                        <td>" . $eachRow['subject'] . "</td>
+                        <td>" . $eachRow['message'] . "</td>
+                    </tr>"
+
+                                  
+        ?>
         </tbody>
 </table>
       </div>
