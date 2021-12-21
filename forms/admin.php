@@ -4,7 +4,7 @@ include('assets/vendor/php-email-form/db.php');
 
 
 
-$sql = "SELECT * FROM contact;";
+$sql = "SELECT * FROM contact ORDER BY id DESC;";
 $result = mysqli_query($dbCon, $sql);
 $checkResult = mysqli_num_rows($result);
 
