@@ -16,6 +16,28 @@ include('../assets/vendor/php-email-form/db.php');
   // $receiving_email_address = 'contact@example.com';
   // $receiving_email_address = 'info@zainservicesltd.co.uk';
 
+
+
+  // grab the data from users in frontend
+
+
+//instantiate SignUpController class goes
+
+//Run error handlers and user signup
+
+//going back to landing page or front page
+
+
+
+
+
+
+
+
+
+
+
+
 try{
 
     $fullname = $_POST['fullName'];
