@@ -1,7 +1,6 @@
 <?php
-include('assets/vendor/php-email-form/db.php');
+// include('assets/vendor/php-email-form/db.php');
 // include('db.php');
-
 
 
 $sql = "SELECT * FROM contact ORDER BY id DESC;";

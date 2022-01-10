@@ -1,6 +1,7 @@
 <?php
-    include('forms/admin.php');
-
+    include('admin/classes/admin.classes.php');
+    $fetchContact = new Admin();
+$fetchContact->getUsers();
 ?>
 <!DOCTYPE html>
 <html lang="en">
