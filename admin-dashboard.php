@@ -2,6 +2,7 @@
     include('admin/classes/admin.classes.php');
     $fetchContact = new Admin();
 $fetchContact->getUsers();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,10 +101,11 @@ $fetchContact->getUsers();
             </tr>
         </thead>
         <tbody>
+
             <?php
+            var_dump($name);exit();
                 while ($eachRow = mysqli_fetch_assoc($result))
-                    // var_dump($result);exit;             
-                    // echo $eachRow['fullName'] . "<br>";
+                    
                     echo
                     "<tr>
                         <th scope='row'>" . $eachRow['id'] . "</th>
@@ -112,9 +114,9 @@ $fetchContact->getUsers();
                         <td>" . $eachRow['subject'] . "</td>
                         <td>" . $eachRow['message'] . "</td>
                     </tr>"
-
                                   
         ?>
+        
         </tbody>
 </table>
       </div>
