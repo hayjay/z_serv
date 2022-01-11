@@ -1,7 +1,7 @@
 <?php
     include('admin/classes/admin.classes.php');
     $fetchContact = new Admin();
-$fetchContact->getUsers();
+    $contacts = $fetchContact->getUsers();
 
 ?>
 <!DOCTYPE html>
@@ -47,9 +47,7 @@ $fetchContact->getUsers();
     <div class="container d-flex align-items-center">
 
       <h1 class="logo me-auto"><a href="index.html">Zain Security Services LTD.</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+     
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="#hero">Home</a></li>
@@ -103,19 +101,23 @@ $fetchContact->getUsers();
         <tbody>
 
             <?php
-            var_dump($name);exit();
-                while ($eachRow = mysqli_fetch_assoc($result))
-                    
-                    echo
-                    "<tr>
-                        <th scope='row'>" . $eachRow['id'] . "</th>
-                        <td>" . $eachRow['fullName'] . "</td>
-                        <td>" . $eachRow['email'] . "</td>
-                        <td>" . $eachRow['subject'] . "</td>
-                        <td>" . $eachRow['message'] . "</td>
-                    </tr>"
+            // var_dump($contacts);exit;
+            foreach($contacts as $eachRow){?>
+                <?php echo "<tr>
+                    <th scope='row'>" . $eachRow['id'] . "</th>
+                    <td>" . $eachRow['fullName'] . "</td>
+                    <td>" . $eachRow['email'] . "</td>
+                    <td>" . $eachRow['subject'] . "</td>
+                    <td>" . $eachRow['message'] . "</td>
+                </tr>";
+                ?>
+
+              <?php
+            } ?>
+
+                
                                   
-        ?>
+        
         
         </tbody>
 </table>
