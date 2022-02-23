@@ -20,14 +20,15 @@ session_start();
         $contactus = new ContactUsContr($fullname, $email, $sbj, $msg);
 
 
-
         // run error
-
-        $contactus->contactError();
-        $_SESSION['contact_submitted'] = true;
-
-
-        // goback to landing page if no error
+        // whenever the contact error method returns true, lets create or set an error session
+        if($contactus->contactError()){
+            $_SESSION['InputFieldEmpty'] = true;
+        }else{
+            // set success message to the session
+            $_SESSION['contact_submitted'] = true;
+        }
+        // goback to landing page
         header('Location: ../../index.php#contact');
     }
 ?>

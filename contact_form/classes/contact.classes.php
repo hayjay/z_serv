@@ -6,8 +6,7 @@
             if(!$stmt->execute(array($fullName, $email, $subject, $message))){
                 $stmt = null;
                 // header('Location: ../index.php?error=failedO');
-                echo "<div class='sent-message'>Error submitting your data. Few seconds...</div>";
-                
+                echo "<div class='btn btn-danger'>Error submitting your data. Few seconds...</div>";
                 exit();
             }
             $stmt = null;

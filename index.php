@@ -1,3 +1,24 @@
+<?php
+ session_start();
+//  if (isset($_SESSION['contact_submitted'])) {
+//   // unset($_SESSION['contact_submitted']);
+
+//   // var_dump($_SESSION['contact_submitted']);exit;
+//  }
+
+//  if (isset($_SESSION['contact_submitted']) && $_SESSION['contact_submitted'] === true) {
+//    # code...
+//   echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+//   <strong>SUCESSFULLY Submitted!!!!</strong>
+//   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+//     <span aria-hidden='true'>&times;</span>
+//   </button>
+// </div>";
+
+//  }    
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,25 +65,7 @@
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       
       
-      <?php
- session_start();
- if (isset($_SESSION['contact_submitted'])) {
-  // unset($_SESSION['contact_submitted']);
 
-  // var_dump($_SESSION['contact_submitted']);exit;
- }
-
-//  if (isset($_SESSION['contact_submitted']) && $_SESSION['contact_submitted'] === true) {
-//    # code...
-//   echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-//   <strong>SUCESSFULLY Submitted!!!!</strong>
-//   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-//     <span aria-hidden='true'>&times;</span>
-//   </button>
-// </div>";
-
-//  }    
- ?>
 
 
       <nav id="navbar" class="navbar">
@@ -289,10 +292,17 @@
         </div>
 
         <div class="row">
+          <!-- handles and shows error -->
               <?php if(isset($_SESSION['contact_submitted'])) {?>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-                <?php unset($_SESSION['contact_submitted']); }?>
-                  
+                <div class="btn btn-success btn-sm">Your message has been sent. Thank you!</div>
+              <?php unset($_SESSION['contact_submitted']); }?>
+
+              <!-- Error -->
+              <?php if(isset($_SESSION['InputFieldEmpty'])) {?>
+
+                <div class="btn btn-danger">All fields are required!</div>
+                <?php unset ($_SESSION['InputFieldEmpty']);}?>
+              
             <div class="col-lg-5 d-flex align-items-stretch">
               <div class="info">
                 <div class="address">
@@ -322,7 +332,7 @@
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="fullName" class="form-control" id="name" required>
+                  <input type="text" name="fullName" class="form-control" id="name">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
@@ -337,11 +347,13 @@
                 <label for="name">Message</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
+
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
               </div>
+              
               <div class="text-center"><button type="submit" name = "submit">Send Message</button></div>
             </form>
           </div>
