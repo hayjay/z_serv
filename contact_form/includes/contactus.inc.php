@@ -11,23 +11,23 @@ session_start();
         $sbj = $_POST['subject'];
         $msg = $_POST['message'];
 
-//instantiate the ContactUsController class
+        //instantiate the ContactUsController class
 
-include "../classes/dbh.classes.php";
-include '../classes/contact.classes.php';
-include '../classes/contact_contr.classes.php';
+        include "../classes/dbh.classes.php";
+        include '../classes/contact.classes.php';
+        include '../classes/contact_contr.classes.php';
 
-$contactus = new ContactUsContr($fullname, $email, $sbj, $msg);
-
-
-
-// run error
-
-$contactus->contactError();
+        $contactus = new ContactUsContr($fullname, $email, $sbj, $msg);
 
 
 
-// goback to landing page if no error
-header('Location: ../../index.php?');
+        // run error
+
+        $contactus->contactError();
+        $_SESSION['contact_submitted'] = true;
+
+
+        // goback to landing page if no error
+        header('Location: ../../index.php#contact');
     }
 ?>

@@ -5,7 +5,7 @@ class Dbh{
     private $dbServername = 'localhost';
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName = "zainsecurity";
+    private $dbName = "dabartraining_db";
 
     protected function connect(){
         

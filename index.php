@@ -46,16 +46,22 @@
       
       <?php
  session_start();
- if (isset($_SESSION['contact_submitted']) && $_SESSION['contact_submitted'] === true) {
-   # code...
-  echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-  <strong>SUCESSFULLY Submitted!!!!</strong>
-  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-    <span aria-hidden='true'>&times;</span>
-  </button>
-</div>";
+ if (isset($_SESSION['contact_submitted'])) {
+  // unset($_SESSION['contact_submitted']);
 
- }    
+  // var_dump($_SESSION['contact_submitted']);exit;
+ }
+
+//  if (isset($_SESSION['contact_submitted']) && $_SESSION['contact_submitted'] === true) {
+//    # code...
+//   echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+//   <strong>SUCESSFULLY Submitted!!!!</strong>
+//   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+//     <span aria-hidden='true'>&times;</span>
+//   </button>
+// </div>";
+
+//  }    
  ?>
 
 
@@ -283,10 +289,13 @@
         </div>
 
         <div class="row">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
+              <?php if(isset($_SESSION['contact_submitted'])) {?>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <?php unset($_SESSION['contact_submitted']); }?>
+                  
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
                 <p>101-103 Canterbury Street Gillingham Kent ME7 5TS.</p>
@@ -308,7 +317,7 @@
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" id="contact">
             <form action="contact_form/includes/contactus.inc.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">

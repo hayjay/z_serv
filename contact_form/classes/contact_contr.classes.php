@@ -16,13 +16,15 @@
         public function contactError(){
             if ($this->emptyInput() == false){
                 //echo 'empty input
-                header('Location: ../index.php?error=emptyinput');
+                // header('Location: ../index.php?error=emptyinput');
+                echo "<div class='sent-message'>input is empty, kindly go again</div>";
                 exit();
             }
 
             if($this->invalidEmail() == false){
-                //echo 'invalid email ooo';
-            header('Location: ../index.php?error=invalidEmail');
+                // echo 'invalid email ooo';
+            // header('Location: ../index.php?error=invalidEmail');
+            "<div class='sent-message'>Inavlid Email, please use a Valid email address</div>";
             }
 
             $this->setContact($this->fullName, $this->email, $this->subject, $this->message);
