@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-
 // try{
-
     if(isset($_POST['submit'])){    
         // grab d data 
         $fullname = $_POST['fullName'];
@@ -18,7 +15,6 @@ session_start();
         include '../classes/contact_contr.classes.php';
 
         $contactus = new ContactUsContr($fullname, $email, $sbj, $msg);
-
 
         // run error
         // whenever the contact error method returns true, lets create or set an error session

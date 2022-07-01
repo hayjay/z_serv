@@ -9,8 +9,5 @@ class Admin extends Dbh{
         $contacts = $stmt->fetchAll();
         // var_dump($contacts);exit();
         return $contacts;       
-}
-
-
-
+    }
 }
